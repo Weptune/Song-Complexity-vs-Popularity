@@ -17,83 +17,131 @@ st.set_page_config(
 # Custom CSS for better UI look - Professional typography and spacing
 st.markdown("""
 <style>
+    /* Main Layout */
     .reportview-container .main .block-container {
         padding-top: 2rem;
         max-width: 1200px;
     }
-    .cover-hero {
-        background: linear-gradient(135deg, #0e1217 0%, #1a232f 100%);
-        padding: 60px 40px;
-        border-radius: 12px;
-        border-top: 4px solid #1DB954;
-        color: #ffffff;
-        text-align: center;
-        margin-bottom: 40px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    }
-    .cover-hero h1 {
-        font-size: 3.5rem;
-        color: #1DB954;
-        margin-bottom: 10px;
-        font-weight: 800;
-        letter-spacing: -1px;
-    }
-    .cover-hero p {
-        font-size: 1.3rem;
-        color: #b3b3b3;
-        font-weight: 300;
-    }
+    
+    /* Global Typography Reset for Streamlit */
     .stMarkdown h1 {
-        color: #1DB954;
-        font-weight: 700;
+        background: -webkit-linear-gradient(45deg, #a34ae2, #4a90e2);
+        -webkit-background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+        font-weight: 800 !important;
+        margin-bottom: 2rem;
+        text-shadow: 0px 4px 20px rgba(163, 74, 226, 0.2);
     }
     .stMarkdown h2 {
-        color: #1eB990;
-        border-bottom: 2px solid #333;
+        color: #e2d7b5 !important;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
         padding-bottom: 0.5rem;
-        margin-top: 2rem;
+        margin-top: 2.5rem;
+        font-weight: 600;
     }
     .stMarkdown h3 {
-        color: #b3b3b3;
+        color: #4a90e2 !important;
+        font-weight: 500;
     }
+
+    /* Cover Hero - The Ultimate Purple Glow */
+    .cover-hero {
+        background: linear-gradient(135deg, rgba(14, 18, 23, 0.9) 0%, rgba(26, 35, 47, 0.95) 100%);
+        padding: 70px 40px;
+        border-radius: 16px;
+        border-top: 4px solid #a34ae2;
+        border-bottom: 1px solid rgba(163, 74, 226, 0.3);
+        border-left: 1px solid rgba(163, 74, 226, 0.1);
+        border-right: 1px solid rgba(163, 74, 226, 0.1);
+        color: #ffffff;
+        text-align: center;
+        margin-bottom: 50px;
+        box-shadow: 0 15px 40px rgba(163, 74, 226, 0.15), inset 0 0 40px rgba(0,0,0,0.5);
+        position: relative;
+        overflow: hidden;
+    }
+    .cover-hero::before {
+        content: "";
+        position: absolute;
+        top: -50%; left: -50%; width: 200%; height: 200%;
+        background: radial-gradient(circle, rgba(163,74,226,0.05) 0%, transparent 60%);
+        pointer-events: none;
+    }
+    .cover-hero h1 {
+        font-size: 4.5rem !important;
+        background: -webkit-linear-gradient(45deg, #d38cff, #a34ae2) !important;
+        -webkit-background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+        margin-bottom: 15px;
+        font-weight: 900 !important;
+        letter-spacing: -2px;
+        text-shadow: none !important; /* Managed by clip */
+    }
+    .cover-hero p {
+        font-size: 1.4rem;
+        color: #c9c9c9;
+        font-weight: 300;
+        letter-spacing: 1px;
+    }
+
+    /* Glassmorphism Metric Boxes */
     .metric-box {
-        background-color: #1a1a1a;
-        padding: 20px;
-        border-radius: 10px;
+        background: rgba(26, 26, 26, 0.6);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        padding: 25px;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
         text-align: left;
-        border: 1px solid #333;
-        transition: transform 0.2s;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.3);
         height: 100%;
     }
     .metric-box:hover {
-        transform: translateY(-5px);
-        border-color: #1DB954;
+        transform: translateY(-8px);
+        background: rgba(30, 30, 30, 0.8);
+        border-color: rgba(163, 74, 226, 0.5);
+        box-shadow: 0 15px 40px rgba(163, 74, 226, 0.15);
     }
+    .metric-box h3 {
+        margin-top: 0;
+        font-size: 1.5rem;
+    }
+
+    /* Analysis & Finding Cards */
     .analysis-card {
-        background-color: #161a22;
-        padding: 25px;
-        border-radius: 8px;
+        background: linear-gradient(145deg, rgba(22, 26, 34, 0.8), rgba(18, 20, 26, 0.9));
+        padding: 30px;
+        border-radius: 12px;
         border-left: 6px solid #4a90e2;
-        margin-bottom: 25px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        border-top: 1px solid rgba(74, 144, 226, 0.2);
+        margin-bottom: 30px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.4);
     }
     .finding-card {
-        background-color: #1a1222;
-        padding: 25px;
-        border-radius: 8px;
+        background: linear-gradient(145deg, rgba(26, 18, 34, 0.8), rgba(20, 15, 26, 0.9));
+        padding: 30px;
+        border-radius: 12px;
         border-left: 6px solid #a34ae2;
-        margin-bottom: 25px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        border-top: 1px solid rgba(163, 74, 226, 0.2);
+        margin-bottom: 30px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.4);
     }
+
+    /* Layman Translations - Elevated */
     .layman-translation {
-        background-color: #1f1b0f;
-        padding: 20px;
-        border-radius: 5px;
+        background: rgba(31, 27, 15, 0.7);
+        backdrop-filter: blur(8px);
+        padding: 22px;
+        border-radius: 8px;
         border-left: 4px solid #F1C40F;
         font-style: italic;
         color: #e2d7b5;
-        margin-top: 15px;
+        margin-top: 20px;
+        border-right: 1px solid rgba(241, 196, 15, 0.1);
+        border-bottom: 1px solid rgba(241, 196, 15, 0.1);
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
 </style>
 """, unsafe_allow_html=True)
@@ -171,7 +219,7 @@ page = st.sidebar.radio(
 )
 
 st.sidebar.markdown("---")
-st.sidebar.info("A definitive academic study investigating how acoustic complexity dimensions influence listener engagement on Spotify. Featuring interactive EDA, Apriori rule extraction, and Live Decision Trees.")
+st.sidebar.info("An interactive dashboard exploring the relationship between acoustic complexity and streaming popularity using audio features.")
 
 if page == "1. Cover & Project Abstract":
     # Professional Dark Theme Cover Page
@@ -353,7 +401,7 @@ elif page == "4. Feature Impact (Regression)":
     
     with col_feat1:
         st.subheader("Feature Importance Baseline")
-        st.write("Which features does the AI rely on the most to predict hit songs?")
+        st.write("Which features does the algorithm rely on the most to predict hit songs?")
         model, features = load_trained_model(df)
         importances = model.feature_importances_
         imp_df = pd.DataFrame({'Feature': features, 'Importance': importances}).sort_values(by="Importance", ascending=False)
@@ -393,7 +441,7 @@ elif page == "5. Association Rule Interactions":
             <li><b>Lift</b>: The core metric of validity. A lift ratio scaling above 1.0 indicates that the combination is highly mathematical and intentional, far beyond random chance.</li>
         </ul>
         <div class='layman-translation'>
-            <b>In Simple Terms:</b> Think of Association Rules like an AI scanning millions of grocery receipts. The algorithm eventually learns that <i>"If someone buys Peanut Butter (Antecedent), there is a 90% chance (Confidence) they will also buy Jelly (Consequent)."</i> We did the precise same thing, but for acoustic features and hit songs.
+            <b>In Simple Terms:</b> Think of Association Rules like an algorithm scanning millions of grocery receipts. The algorithm eventually learns that <i>"If someone buys Peanut Butter (Antecedent), there is a 90% chance (Confidence) they will also buy Jelly (Consequent)."</i> We did the precise same thing, but for acoustic features and hit songs.
         </div>
     </div>
     """, unsafe_allow_html=True)
@@ -543,6 +591,6 @@ elif page == "6. Predictive Popularity Playground":
 
         st.markdown("""
         <div class='layman-translation'>
-            <b>How the AI Thinks:</b> The tree splits paths based entirely on mathematical boundaries derived from our dataset. Try dropping 'Instrumentalness' to 0 and pushing 'Danceability' and 'Energy' high to see if you can break into the coveted HIGH popularity bracket! The model heavily penalizes chaotic, rambling acoustic structures.
+            <b>How the Algorithm Thinks:</b> The tree splits paths based entirely on mathematical boundaries derived from our dataset. Try dropping 'Instrumentalness' to 0 and pushing 'Danceability' and 'Energy' high to see if you can break into the coveted HIGH popularity bracket! The algorithm heavily penalizes chaotic, rambling acoustic structures.
         </div>
         """, unsafe_allow_html=True)
