@@ -1,0 +1,11 @@
+antecedents,consequents,confidence,lift
+"frozenset({'popularity_level_Low', 'complexity_level_Low'})",frozenset({'energy_level_Low'}),0.5818014705882353,1.7429325929299655
+"frozenset({'complexity_level_High', 'popularity_level_Medium'})",frozenset({'energy_level_High'}),0.5628938439166262,1.690317004410811
+"frozenset({'popularity_level_Low', 'energy_level_High'})",frozenset({'complexity_level_High'}),0.5623942745608328,1.6872051861730373
+"frozenset({'popularity_level_Medium', 'energy_level_Low'})",frozenset({'complexity_level_Low'}),0.5579171094580233,1.6737069612083078
+"frozenset({'energy_level_Low', 'popularity_level_Low'})",frozenset({'complexity_level_Low'}),0.5533216783216782,1.6599210332411125
+"frozenset({'popularity_level_Medium', 'complexity_level_Low'})",frozenset({'energy_level_Low'}),0.5516637478108581,1.652647466540942
+frozenset({'complexity_level_Low'}),frozenset({'energy_level_Low'}),0.5443737574552684,1.6308084674403451
+frozenset({'energy_level_Low'}),frozenset({'complexity_level_Low'}),0.5436172324796505,1.630808467440345
+frozenset({'energy_level_High'}),frozenset({'complexity_level_High'}),0.5283980099502488,1.5852150405473924
+frozenset({'complexity_level_High'}),frozenset({'energy_level_High'}),0.5278937532307447,1.5852150405473922

@@ -1,0 +1,27 @@
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:             popularity   R-squared:                       0.011
+Model:                            OLS   Adj. R-squared:                  0.011
+Method:                 Least Squares   F-statistic:                     268.3
+Date:                Wed, 18 Feb 2026   Prob (F-statistic):          3.09e-173
+Time:                        10:11:06   Log-Likelihood:            -3.3357e+05
+No. Observations:               75448   AIC:                         6.671e+05
+Df Residuals:                   75444   BIC:                         6.672e+05
+Df Model:                           3                                         
+Covariance Type:            nonrobust                                         
+=========================================================================================
+                            coef    std err          t      P>|t|      [0.025      0.975]
+-----------------------------------------------------------------------------------------
+const                    25.8287      0.597     43.297      0.000      24.659      26.998
+energy                    9.5611      0.873     10.947      0.000       7.849      11.273
+structural_complexity     0.7035      1.507      0.467      0.641      -2.250       3.657
+energy_x_structure      -26.6389      2.498    -10.663      0.000     -31.535     -21.743
+==============================================================================
+Omnibus:                     5472.178   Durbin-Watson:                   0.834
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):             3205.783
+Skew:                           0.367   Prob(JB):                         0.00
+Kurtosis:                       2.305   Cond. No.                         50.5
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.

@@ -1,0 +1,31 @@
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:             popularity   R-squared:                       0.054
+Model:                            OLS   Adj. R-squared:                  0.054
+Method:                 Least Squares   F-statistic:                     618.7
+Date:                Wed, 18 Feb 2026   Prob (F-statistic):               0.00
+Time:                        10:11:06   Log-Likelihood:            -3.3187e+05
+No. Observations:               75448   AIC:                         6.637e+05
+Df Residuals:                   75440   BIC:                         6.638e+05
+Df Model:                           7                                         
+Covariance Type:            nonrobust                                         
+====================================================================================
+                       coef    std err          t      P>|t|      [0.025      0.975]
+------------------------------------------------------------------------------------
+const               13.7671      0.538     25.606      0.000      12.713      14.821
+energy             -16.3656      0.632    -25.899      0.000     -17.604     -15.127
+loudness            38.4953      0.724     53.176      0.000      37.076      39.914
+danceability         5.7489      0.472     12.181      0.000       4.824       6.674
+acousticness        -1.5720      0.335     -4.693      0.000      -2.229      -0.915
+instrumentalness    -4.1830      0.409    -10.232      0.000      -4.984      -3.382
+tempo                0.0585      0.423      0.139      0.890      -0.770       0.887
+valence             -5.6022      0.338    -16.564      0.000      -6.265      -4.939
+==============================================================================
+Omnibus:                     4575.029   Durbin-Watson:                   0.877
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):             2490.012
+Skew:                           0.289   Prob(JB):                         0.00
+Kurtosis:                       2.323   Cond. No.                         20.8
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
